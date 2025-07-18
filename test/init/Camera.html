@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Camera&Servo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #0e1513;
+        /* color: #; */
+      }
+
+      h1 {
+        color: #dee4e1;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      input {
+        border: none;
+        background-color: #9ff2e1;
+        color: #005046;
+        width: 50px;
+        margin-left: 5px;
+        border-radius: 5px;
+      }
+
+      #main {
+        display: flex;
+        flex-direction: column;
+        max-width: 80%;
+        margin: 0 auto;
+      }
+
+      .image {
+        width: auto;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .ibox {
+        width: 100px;
+        height: 20px;
+        color: #9ff2e1;
+        text-align: center;
+        display: flex; /* 启用Flexbox布局 */
+        justify-content: space-around; /* 项目均匀分布 */
+      }
+
+      .tbox {
+        width: 100px;
+        text-align: center;
+        display: flex; /* 启用Flexbox布局 */
+        justify-content: center; /* 垂直居中内容 */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <h1>ESP32 Camera + Servo Control</h1>
+      <hr />
+      <div class="pbox">
+        <!-- <img
+          src="https://raw.githubusercontent.com/robotzhang/robot/main/test/init/Camera.jpg"
+          class="image" > -->
+        <div
+          style="width: 400px; height: 300px; background-color: #b1ccc5"
+          class="image"
+        />
+      </div>
+      <div>
+        <div class="ibox">
+          <span class="tbox">interval(ms): </span>
+          <input type="text" name="number" value="1000" />
+        </div>
+      </div>
+    </div>
+    <script>
+      const intervalInput=doc
+      inputField.addEventListener("input", (event) => {
+        console.log("User typed:", event.target.value);
+      });
+    </script>
+  </body>
+</html>

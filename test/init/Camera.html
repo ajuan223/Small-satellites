@@ -1,88 +1,133 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Camera&Servo</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #0e1513;
-        /* color: #; */
-      }
 
-      h1 {
-        color: #dee4e1;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <title>Camera&Servo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0e1513;
+      /* color: #; */
+    }
 
-      input {
-        border: none;
-        background-color: #9ff2e1;
-        color: #005046;
-        width: 50px;
-        margin-left: 5px;
-        border-radius: 5px;
-      }
+    h1 {
+      color: #dee4e1;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-      #main {
-        display: flex;
-        flex-direction: column;
-        max-width: 80%;
-        margin: 0 auto;
-      }
+    .text-input {
+      border: none;
+      background-color: #9ff2e1;
+      height: auto;
+      color: #005046;
+      margin-left: 10px;
+      padding: 5px;
+      border-radius: 5px;
+    }
 
-      .image {
-        width: auto;
-        height: auto;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
+    .text-input:focus {
+      border: none;
+      background-color: #cde8e1;
+      color: #334b46;
+    }
 
-      .ibox {
-        width: 100px;
-        height: 20px;
-        color: #9ff2e1;
-        text-align: center;
-        display: flex; /* 启用Flexbox布局 */
-        justify-content: space-around; /* 项目均匀分布 */
-      }
+    .button {
+      border: none;
+      background-color: #9ff2e1;
+      color: #005046;
+      padding: 5px;
+      border-radius: 5px;
+    }
 
-      .tbox {
-        width: 100px;
-        text-align: center;
-        display: flex; /* 启用Flexbox布局 */
-        justify-content: center; /* 垂直居中内容 */
-      }
-    </style>
-  </head>
-  <body>
-    <div id="main">
-      <h1>ESP32 Camera + Servo Control</h1>
-      <hr />
-      <div class="pbox">
-        <!-- <img
+    .button:active {
+      background-color: #cde8e1;
+      color: #334b46;
+    }
+
+    #main {
+      display: flex;
+      flex-direction: column;
+      max-width: 80%;
+      margin: 0 auto;
+      align-content: center;
+    }
+
+    .image {
+      width: auto;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .bigbox {
+      flex-direction: column;
+      margin-top: 20px;
+      justify-content: center;
+      gap: 10px;
+      display: flex;
+    }
+
+    .ibox {
+      color: #9ff2e1;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tbox {
+      width: 100px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cbox {
+      display: flex;
+      margin-top: auto;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+  <script>
+    let interval = 1000;
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <h1>ESP32 Camera + Servo Control</h1>
+    <hr>
+    <!-- <img
           src="https://raw.githubusercontent.com/robotzhang/robot/main/test/init/Camera.jpg"
           class="image" > -->
-        <div
-          style="width: 400px; height: 300px; background-color: #b1ccc5"
-          class="image"
-        />
+    <div style="width: 400px; height: 300px; background-color: #b1ccc5" class="image"></div>
+    <div class="bigbox">
+      <div class="ibox">
+        <div class="tbox">interval(ms): </div>
+        <input type="text" name="number" id="interval-input" class="text-input" style="width: 50px" value="1000" />
       </div>
-      <div>
-        <div class="ibox">
-          <span class="tbox">interval(ms): </span>
-          <input type="text" name="number" value="1000" />
-        </div>
+      <div class="cbox">
+        <input type="button" class="button" value="start" />
+        <input type="button" class="button" value="stop" />
+        <input type="button" class="button" value="clear" />
+        <input type="button" class="button" value="download" />
       </div>
     </div>
     <script>
-      const intervalInput=doc
-      inputField.addEventListener("input", (event) => {
-        console.log("User typed:", event.target.value);
+      const intervalInput = document.getElementById("interval-input");
+      intervalInput.addEventListener("input", (event) => {
+        interval = event.target.value;
+        interval = parseInt(interval);
+        intervalInput.value = interval;
       });
     </script>
-  </body>
+    <hr>
+
+</body>
+
 </html>

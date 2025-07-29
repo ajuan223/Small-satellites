@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon src/app.ts",
+    "run:dev": "ts-node src/app.ts",
+    "build": "tsc",
+    "run": "node dist/app"
+  },
+  "dependencies": {
+    "@koa/router": "^13.1.1",
+    "koa": "^3.0.0",
+    "koa-body": "^6.0.1",
+    "koa-send": "^5.0.1",
+    "koa-websocket": "^7.0.0",
+    "log4js": "^6.9.1"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.15.0",
+    "@types/koa-send": "^4.1.6",
+    "@types/koa-websocket": "^5.0.10",
+    "@types/koa__router": "^12.0.4",
+    "@types/node": "^24.0.15",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
